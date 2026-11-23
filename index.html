@@ -1,0 +1,2194 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSFiddle nvd0eokg</title>
+
+  <style>
+    /* =========================
+   CONFIGURACIÓN GENERAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #0b1020;
+    color: white;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   CABECERA
+========================= */
+
+header {
+    background-color: #050816;
+    padding: 20px 7%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #26304d;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: #ffffff;
+    font-size: 24px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #4da3ff;
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+.hero {
+    min-height: 650px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    background:
+        linear-gradient(
+            rgba(5, 8, 22, 0.75),
+            rgba(11, 16, 32, 0.95)
+        ),
+        url("https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1600&q=80");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-text {
+    max-width: 850px;
+}
+
+.hero h2 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   BOTÓN
+========================= */
+
+.boton {
+    display: inline-block;
+
+    padding: 14px 30px;
+
+    background-color: #1976d2;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    font-weight: bold;
+}
+
+.boton:hover {
+    background-color: #0d47a1;
+}
+
+
+/* =========================
+   SECCIONES GENERALES
+========================= */
+
+section {
+    padding: 90px 8%;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   SOBRE LOS PLAYOFFS
+========================= */
+
+.sobre {
+    background-color: #10182d;
+}
+
+.sobre > p {
+    max-width: 900px;
+    margin: 15px auto;
+    text-align: center;
+    color: #d0d5e0;
+}
+
+
+/* =========================
+   CAJAS DE INFORMACIÓN
+========================= */
+
+.info-box {
+    max-width: 1100px;
+    margin: 50px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.info-box div {
+    background-color: #17213d;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    border: 1px solid #29375e;
+}
+
+.info-box h3 {
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   RONDAS
+========================= */
+
+.rondas {
+    background-color: #0b1020;
+}
+
+.intro {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #c4cad8;
+}
+
+.ronda {
+    max-width: 1000px;
+
+    margin: 30px auto;
+
+    padding: 35px;
+
+    display: grid;
+
+    grid-template-columns: 100px 1fr;
+
+    gap: 30px;
+
+    background-color: #151e36;
+
+    border-radius: 15px;
+
+    border-left: 5px solid #1976d2;
+}
+
+.ronda h3 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.ronda p {
+    color: #d4d8e1;
+    margin-bottom: 15px;
+}
+
+.ronda ul {
+    padding-left: 20px;
+}
+
+.ronda li {
+    margin-bottom: 8px;
+}
+
+.numero {
+    font-size: 45px;
+    font-weight: bold;
+    color: #1976d2;
+}
+
+.ronda.final {
+    border-left-color: #ffd700;
+}
+
+.final .numero {
+    color: #ffd700;
+}
+
+
+/* =========================
+   TARJETAS DE CLAVES
+========================= */
+
+.equipos {
+    background-color: #10182d;
+}
+
+.tarjetas {
+    max-width: 1200px;
+
+    margin: 50px auto 0;
+
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 25px;
+}
+
+.tarjeta {
+    background-color: #17213d;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s,
+        border 0.3s;
+
+    text-decoration: none;
+
+    color: white;
+
+    border: 1px solid transparent;
+
+    display: block;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+
+    border: 1px solid #1976d2;
+}
+
+.tarjeta span {
+    font-size: 45px;
+}
+
+.tarjeta h3 {
+    margin: 15px 0;
+}
+
+.tarjeta p {
+    color: #cbd0db;
+}
+
+.tarjeta strong {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #4da3ff;
+}
+
+
+/* =========================
+   HISTORIA
+========================= */
+
+.historia {
+    background-color: #0b1020;
+}
+
+.historia > p {
+    max-width: 900px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+    color: #d0d5e0;
+}
+
+.historia-grid {
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+}
+
+.historia-card {
+    background-color: #151e36;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    border: 1px solid #29375e;
+
+    text-decoration: none;
+
+    color: white;
+
+    display: block;
+
+    transition:
+        transform 0.3s,
+        border 0.3s;
+}
+
+.historia-card:hover {
+    transform: translateY(-8px);
+
+    border-color: #1976d2;
+}
+
+.historia-card h3 {
+    margin-bottom: 15px;
+}
+
+.historia-card p {
+    color: #d0d5e0;
+}
+
+.historia-card strong {
+    display: block;
+
+    margin-top: 20px;
+
+    color: #4da3ff;
+}
+
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contacto {
+    background-color: #10182d;
+}
+
+.contacto > p {
+    text-align: center;
+
+    margin-bottom: 35px;
+}
+
+form {
+    max-width: 650px;
+
+    margin: auto;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+label {
+    margin-top: 15px;
+
+    margin-bottom: 7px;
+
+    font-weight: bold;
+}
+
+input,
+textarea {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #202b49;
+
+    color: white;
+
+    font-size: 16px;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #1976d2;
+}
+
+button {
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #1976d2;
+
+    color: white;
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0d47a1;
+}
+
+
+/* =========================
+   PÁGINAS INTERIORES
+========================= */
+
+.pagina {
+    max-width: 950px;
+
+    margin: auto;
+
+    min-height: 700px;
+}
+
+.pagina h2 {
+    text-align: left;
+
+    font-size: 45px;
+
+    margin-bottom: 35px;
+}
+
+.pagina h3 {
+    font-size: 28px;
+
+    margin-top: 40px;
+
+    margin-bottom: 15px;
+
+    color: #4da3ff;
+}
+
+.pagina p {
+    color: #d0d5e0;
+
+    font-size: 18px;
+
+    margin-bottom: 20px;
+}
+
+.volver {
+    display: inline-block;
+
+    margin-top: 40px;
+
+    padding: 12px 25px;
+
+    background-color: #1976d2;
+
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 25px;
+
+    font-weight: bold;
+}
+
+.volver:hover {
+    background-color: #0d47a1;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 40px 20px;
+
+    background-color: #050816;
+
+    color: #aeb5c5;
+}
+
+footer h3 {
+    color: white;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+    nav {
+        flex-direction: column;
+
+        gap: 20px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+
+        justify-content: center;
+    }
+
+    .hero h2 {
+        font-size: 42px;
+    }
+
+    .info-box {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjetas {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .historia-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================
+   MÓVIL
+========================= */
+
+@media (max-width: 600px) {
+
+    section {
+        padding: 60px 5%;
+    }
+
+    .hero {
+        min-height: 550px;
+    }
+
+    .hero h2 {
+        font-size: 34px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .ronda {
+        grid-template-columns: 1fr;
+    }
+
+    .numero {
+        font-size: 35px;
+    }
+
+    .tarjetas {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        gap: 12px;
+
+        font-size: 14px;
+    }
+
+}
+  </style>
+
+  
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NBA Playoffs</title>
+
+    <style>
+
+        /* =========================
+           CONFIGURACIÓN GENERAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #0b1020;
+            color: white;
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CABECERA
+        ========================= */
+
+        header {
+            background-color: #050816;
+            padding: 20px 7%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #26304d;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav h1 {
+            color: white;
+            font-size: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            color: #4da3ff;
+        }
+
+
+        /* =========================
+           PORTADA
+        ========================= */
+
+        .hero {
+            min-height: 650px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 50px 20px;
+
+            background:
+                linear-gradient(
+                    rgba(5, 8, 22, 0.75),
+                    rgba(11, 16, 32, 0.95)
+                ),
+                url("https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero-text {
+            max-width: 850px;
+        }
+
+        .hero h2 {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 35px;
+        }
+
+
+        /* =========================
+           BOTONES
+        ========================= */
+
+        .boton {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background-color: #1976d2;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+        }
+
+        .boton:hover {
+            background-color: #0d47a1;
+        }
+
+
+        /* =========================
+           SECCIONES
+        ========================= */
+
+        section {
+            padding: 90px 8%;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 25px;
+        }
+
+
+        /* =========================
+           SOBRE LOS PLAYOFFS
+        ========================= */
+
+        .sobre {
+            background-color: #10182d;
+        }
+
+        .sobre > p {
+            max-width: 900px;
+            margin: 15px auto;
+            text-align: center;
+            color: #d0d5e0;
+        }
+
+        .info-box {
+            max-width: 1100px;
+            margin: 50px auto 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .info-box div {
+            background-color: #17213d;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            border: 1px solid #29375e;
+        }
+
+        .info-box h3 {
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           RONDAS
+        ========================= */
+
+        .rondas {
+            background-color: #0b1020;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #c4cad8;
+        }
+
+        .ronda {
+            max-width: 1000px;
+
+            margin: 30px auto;
+
+            padding: 35px;
+
+            display: grid;
+
+            grid-template-columns: 100px 1fr;
+
+            gap: 30px;
+
+            background-color: #151e36;
+
+            border-radius: 15px;
+
+            border-left: 5px solid #1976d2;
+        }
+
+        .ronda h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .ronda p {
+            color: #d4d8e1;
+            margin-bottom: 15px;
+        }
+
+        .ronda ul {
+            padding-left: 20px;
+        }
+
+        .ronda li {
+            margin-bottom: 8px;
+        }
+
+        .numero {
+            font-size: 45px;
+            font-weight: bold;
+            color: #1976d2;
+        }
+
+        .ronda.final {
+            border-left-color: #ffd700;
+        }
+
+        .final .numero {
+            color: #ffd700;
+        }
+
+
+        /* =========================
+           TARJETAS
+        ========================= */
+
+        .equipos {
+            background-color: #10182d;
+        }
+
+        .tarjetas {
+            max-width: 1200px;
+
+            margin: 50px auto 0;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background-color: #17213d;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            text-align: center;
+
+            transition: transform 0.3s, border 0.3s;
+
+            text-decoration: none;
+
+            color: white;
+
+            border: 1px solid transparent;
+
+            display: block;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-10px);
+
+            border: 1px solid #1976d2;
+        }
+
+        .tarjeta span {
+            font-size: 45px;
+        }
+
+        .tarjeta h3 {
+            margin: 15px 0;
+        }
+
+        .tarjeta p {
+            color: #cbd0db;
+        }
+
+        .tarjeta strong {
+            display: block;
+
+            margin-top: 20px;
+
+            color: #4da3ff;
+        }
+
+
+        /* =========================
+           HISTORIA
+        ========================= */
+
+        .historia {
+            background-color: #0b1020;
+        }
+
+        .historia > p {
+            max-width: 900px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: #d0d5e0;
+        }
+
+        .historia-grid {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .historia-card {
+            background-color: #151e36;
+
+            padding: 30px;
+
+            border-radius: 15px;
+
+            border: 1px solid #29375e;
+
+            text-decoration: none;
+
+            color: white;
+
+            display: block;
+
+            transition: transform 0.3s, border 0.3s;
+        }
+
+        .historia-card:hover {
+            transform: translateY(-8px);
+
+            border-color: #1976d2;
+        }
+
+        .historia-card h3 {
+            margin-bottom: 15px;
+        }
+
+        .historia-card p {
+            color: #d0d5e0;
+        }
+
+        .historia-card strong {
+            display: block;
+
+            margin-top: 20px;
+
+            color: #4da3ff;
+        }
+
+
+        /* =========================
+           PÁGINAS / APARTADOS
+        ========================= */
+
+        .pagina {
+            max-width: 1000px;
+
+            margin: auto;
+
+            min-height: 700px;
+
+            padding-top: 100px;
+        }
+
+        .pagina h2 {
+            text-align: left;
+
+            font-size: 45px;
+
+            margin-bottom: 35px;
+        }
+
+        .pagina h3 {
+            font-size: 28px;
+
+            margin-top: 40px;
+
+            margin-bottom: 15px;
+
+            color: #4da3ff;
+        }
+
+        .pagina p {
+            color: #d0d5e0;
+
+            font-size: 18px;
+
+            margin-bottom: 20px;
+        }
+
+        .volver {
+            display: inline-block;
+
+            margin-top: 40px;
+
+            padding: 12px 25px;
+
+            background-color: #1976d2;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+        }
+
+        .volver:hover {
+            background-color: #0d47a1;
+        }
+
+
+        /* =========================
+           CONTACTO
+        ========================= */
+
+        .contacto {
+            background-color: #10182d;
+        }
+
+        .contacto > p {
+            text-align: center;
+
+            margin-bottom: 35px;
+        }
+
+        form {
+            max-width: 650px;
+
+            margin: auto;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        label {
+            margin-top: 15px;
+
+            margin-bottom: 7px;
+
+            font-weight: bold;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #202b49;
+
+            color: white;
+
+            font-size: 16px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: 2px solid #1976d2;
+        }
+
+        button {
+            margin-top: 25px;
+
+            padding: 15px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background-color: #1976d2;
+
+            color: white;
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0d47a1;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 40px 20px;
+
+            background-color: #050816;
+
+            color: #aeb5c5;
+        }
+
+        footer h3 {
+            color: white;
+
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h2 {
+                font-size: 42px;
+            }
+
+            .info-box {
+                grid-template-columns: 1fr;
+            }
+
+            .tarjetas {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .historia-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .hero {
+                min-height: 550px;
+            }
+
+            .hero h2 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .ronda {
+                grid-template-columns: 1fr;
+            }
+
+            .numero {
+                font-size: 35px;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                gap: 12px;
+                font-size: 14px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     CABECERA
+====================================================== -->
+
+<header>
+
+    <nav>
+
+        <h1>🏀 NBA PLAYOFFS</h1>
+
+        <ul>
+
+            <li>
+                <a href="#inicio">Inicio</a>
+            </li>
+
+            <li>
+                <a href="#playoffs">Playoffs</a>
+            </li>
+
+            <li>
+                <a href="#rondas">Rondas</a>
+            </li>
+
+            <li>
+                <a href="#historia">Historia</a>
+            </li>
+
+            <li>
+                <a href="#contacto">Contacto</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =====================================================
+     INICIO
+====================================================== -->
+
+<section id="inicio" class="hero">
+
+    <div class="hero-text">
+
+        <h2>
+            El camino hacia el campeonato
+        </h2>
+
+        <p>
+            Descubre todo sobre los Playoffs de la NBA:
+            las rondas, los equipos, los jugadores y las
+            grandes historias que han marcado la competición.
+        </p>
+
+        <a href="#playoffs" class="boton">
+            Explorar Playoffs
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ¿QUÉ SON LOS PLAYOFFS?
+====================================================== -->
+
+<section id="playoffs" class="sobre">
+
+    <h2>
+        ¿Qué son los Playoffs de la NBA?
+    </h2>
+
+    <p>
+        Los Playoffs de la NBA son la fase decisiva de la temporada.
+        Los mejores equipos compiten en diferentes rondas para
+        conseguir llegar a las Finales de la NBA y luchar por
+        el campeonato.
+    </p>
+
+    <p>
+        Las eliminatorias se disputan en series al mejor de siete
+        partidos. El equipo que consigue cuatro victorias avanza
+        a la siguiente ronda.
+    </p>
+
+
+    <div class="info-box">
+
+        <div>
+
+            <h3>🏀 Competición</h3>
+
+            <p>
+                Los equipos se enfrentan en eliminatorias
+                directas.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>🔥 Intensidad</h3>
+
+            <p>
+                Cada partido puede ser decisivo para continuar
+                en la competición.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>🏆 Objetivo</h3>
+
+            <p>
+                Llegar a las Finales y conseguir el campeonato.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     RONDAS
+====================================================== -->
+
+<section id="rondas" class="rondas">
+
+    <h2>
+        Las rondas de los Playoffs
+    </h2>
+
+    <p class="intro">
+        El camino hacia el campeonato está formado por varias
+        rondas eliminatorias.
+    </p>
+
+
+    <article class="ronda">
+
+        <div class="numero">
+            01
+        </div>
+
+        <div>
+
+            <h3>
+                Primera Ronda
+            </h3>
+
+            <p>
+                Es el comienzo de los Playoffs. Los equipos
+                clasificados se enfrentan en diferentes series.
+                Para avanzar necesitan ganar cuatro partidos.
+            </p>
+
+            <ul>
+                <li>Series al mejor de 7.</li>
+                <li>Los ganadores avanzan.</li>
+                <li>Los perdedores quedan eliminados.</li>
+                <li>La ventaja de campo puede ser importante.</li>
+            </ul>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="ronda">
+
+        <div class="numero">
+            02
+        </div>
+
+        <div>
+
+            <h3>
+                Semifinales de Conferencia
+            </h3>
+
+            <p>
+                Los equipos que superan la primera ronda continúan
+                compitiendo en las semifinales de sus respectivas
+                conferencias.
+            </p>
+
+            <ul>
+                <li>Participan los equipos supervivientes.</li>
+                <li>Continúan las series al mejor de 7.</li>
+                <li>El nivel de competición aumenta.</li>
+                <li>Los errores tienen cada vez más importancia.</li>
+            </ul>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="ronda">
+
+        <div class="numero">
+            03
+        </div>
+
+        <div>
+
+            <h3>
+                Finales de Conferencia
+            </h3>
+
+            <p>
+                En esta ronda solamente quedan cuatro equipos:
+                dos de la Conferencia Este y dos de la Conferencia
+                Oeste.
+            </p>
+
+            <ul>
+                <li>Dos equipos compiten por cada conferencia.</li>
+                <li>El ganador consigue el título de conferencia.</li>
+                <li>El vencedor avanza a las NBA Finals.</li>
+            </ul>
+
+        </div>
+
+    </article>
+
+
+
+    <article class="ronda final">
+
+        <div class="numero">
+            04
+        </div>
+
+        <div>
+
+            <h3>
+                🏆 NBA Finals
+            </h3>
+
+            <p>
+                Es la última ronda de los Playoffs. El campeón
+                de la Conferencia Este se enfrenta al campeón
+                de la Conferencia Oeste.
+            </p>
+
+            <ul>
+                <li>Dos equipos luchan por el campeonato.</li>
+                <li>La serie se disputa al mejor de 7.</li>
+                <li>El ganador se convierte en campeón de la NBA.</li>
+            </ul>
+
+        </div>
+
+    </article>
+
+</section>
+
+
+
+<!-- =====================================================
+     CLAVES
+====================================================== -->
+
+<section class="equipos">
+
+    <h2>
+        Claves de los Playoffs
+    </h2>
+
+
+    <div class="tarjetas">
+
+
+        <a href="#estrellas" class="tarjeta">
+
+            <span>⭐</span>
+
+            <h3>
+                Las estrellas
+            </h3>
+
+            <p>
+                Los grandes jugadores pueden marcar la diferencia
+                en los momentos más importantes.
+            </p>
+
+            <strong>
+                Ver más →
+            </strong>
+
+        </a>
+
+
+
+        <a href="#defensa" class="tarjeta">
+
+            <span>🛡️</span>
+
+            <h3>
+                La defensa
+            </h3>
+
+            <p>
+                Una defensa sólida puede ser fundamental para
+                ganar una serie larga.
+            </p>
+
+            <strong>
+                Ver más →
+            </strong>
+
+        </a>
+
+
+
+        <a href="#presion" class="tarjeta">
+
+            <span>🔥</span>
+
+            <h3>
+                La presión
+            </h3>
+
+            <p>
+                En los Playoffs cada partido tiene una importancia
+                especial y la presión aumenta.
+            </p>
+
+            <strong>
+                Ver más →
+            </strong>
+
+        </a>
+
+
+
+        <a href="#campeonato" class="tarjeta">
+
+            <span>🏆</span>
+
+            <h3>
+                El campeonato
+            </h3>
+
+            <p>
+                Todos los equipos persiguen el mismo objetivo:
+                conseguir el título de la NBA.
+            </p>
+
+            <strong>
+                Ver más →
+            </strong>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA: LAS ESTRELLAS
+====================================================== -->
+
+<section id="estrellas" class="pagina">
+
+    <h2>
+        ⭐ Las estrellas de los Playoffs
+    </h2>
+
+    <h3>
+        El papel de las estrellas
+    </h3>
+
+    <p>
+        Los grandes jugadores tienen un papel fundamental durante
+        los Playoffs. Cuando la competición llega a sus momentos
+        decisivos, las estrellas deben asumir una mayor
+        responsabilidad.
+    </p>
+
+    <h3>
+        La importancia de los momentos decisivos
+    </h3>
+
+    <p>
+        Los partidos de Playoffs pueden llegar a situaciones muy
+        igualadas. En esos momentos, una buena decisión puede
+        cambiar completamente el resultado de un partido.
+    </p>
+
+    <h3>
+        Liderazgo
+    </h3>
+
+    <p>
+        Además de las estadísticas, una estrella puede influir
+        mediante su liderazgo y su capacidad para mantener al
+        equipo concentrado durante los momentos de mayor presión.
+    </p>
+
+    <a href="#inicio" class="volver">
+        ← Volver al inicio
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA: DEFENSA
+====================================================== -->
+
+<section id="defensa" class="pagina">
+
+    <h2>
+        🛡️ La defensa en los Playoffs
+    </h2>
+
+    <h3>
+        ¿Por qué es tan importante?
+    </h3>
+
+    <p>
+        La defensa es uno de los elementos fundamentales durante
+        los Playoffs. Los equipos necesitan limitar las oportunidades
+        del rival y evitar que sus principales jugadores encuentren
+        demasiadas facilidades para anotar.
+    </p>
+
+    <h3>
+        Defensa individual
+    </h3>
+
+    <p>
+        Los defensores pueden encargarse de jugadores concretos,
+        intentando dificultar sus lanzamientos y movimientos.
+    </p>
+
+    <h3>
+        Defensa colectiva
+    </h3>
+
+    <p>
+        Una buena defensa necesita la colaboración de todo el equipo.
+        La comunicación, las ayudas defensivas y la organización
+        pueden marcar la diferencia.
+    </p>
+
+    <a href="#inicio" class="volver">
+        ← Volver al inicio
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA: PRESIÓN
+====================================================== -->
+
+<section id="presion" class="pagina">
+
+    <h2>
+        🔥 La presión de los Playoffs
+    </h2>
+
+    <h3>
+        Partidos decisivos
+    </h3>
+
+    <p>
+        Durante la temporada regular existen muchos partidos,
+        pero en los Playoffs cada encuentro puede acercar a un
+        equipo al campeonato o dejarlo eliminado.
+    </p>
+
+    <h3>
+        Presión sobre los jugadores
+    </h3>
+
+    <p>
+        Los jugadores tienen que mantener la concentración incluso
+        cuando el marcador está igualado y quedan pocos minutos
+        para terminar el partido.
+    </p>
+
+    <h3>
+        Experiencia
+    </h3>
+
+    <p>
+        La experiencia puede ayudar a los jugadores a gestionar
+        mejor los momentos importantes y tomar decisiones bajo
+        presión.
+    </p>
+
+    <a href="#inicio" class="volver">
+        ← Volver al inicio
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     PÁGINA: CAMPEONATO
+====================================================== -->
+
+<section id="campeonato" class="pagina">
+
+    <h2>
+        🏆 El campeonato
+    </h2>
+
+    <h3>
+        El objetivo final
+    </h3>
+
+    <p>
+        El objetivo de todos los equipos que participan en los
+        Playoffs es conseguir llegar hasta las Finales y ganar
+        el campeonato de la NBA.
+    </p>
+
+    <h3>
+        Las NBA Finals
+    </h3>
+
+    <p>
+        En las Finales se enfrentan los campeones de las dos
+        conferencias. La serie se disputa al mejor de siete
+        partidos.
+    </p>
+
+    <h3>
+        El campeón
+    </h3>
+
+    <p>
+        El equipo que consigue cuatro victorias en las Finales
+        se proclama campeón de la NBA.
+    </p>
+
+    <a href="#inicio" class="volver">
+        ← Volver al inicio
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     HISTORIA
+====================================================== -->
+
+<section id="historia" class="historia">
+
+    <h2>
+        Historia de los Playoffs
+    </h2>
+
+    <p>
+        Los Playoffs han dejado algunos de los momentos más
+        recordados de la historia del baloncesto. Grandes equipos,
+        jugadores legendarios y series muy igualadas han formado
+        parte de la historia de la NBA.
+    </p>
+
+
+    <div class="historia-grid">
+
+
+        <a href="#equipos" class="historia-card">
+
+            <h3>
+                🏀 Grandes equipos
+            </h3>
+
+            <p>
+                Las grandes dinastías han conseguido dominar
+                diferentes épocas de la competición.
+            </p>
+
+            <strong>
+                Descubrir →
+            </strong>
+
+        </a>
+
+
+
+        <a href="#jugadores" class="historia-card">
+
+            <h3>
+                👑 Jugadores legendarios
+            </h3>
+
+            <p>
+                Las estrellas han protagonizado algunos de
+                los momentos más importantes de los Playoffs.
+            </p>
+
+            <strong>
+                Descubrir →
+            </strong>
+
+        </a>
+
+
+
+        <a href="#remontadas" class="historia-card">
+
+            <h3>
+                ⚡ Grandes remontadas
+            </h3>
+
+            <p>
+                Algunas eliminatorias han cambiado completamente
+                después de comenzar con desventaja.
+            </p>
+
+            <strong>
+                Descubrir →
+            </strong>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GRANDES EQUIPOS
+====================================================== -->
+
+<section id="equipos" class="pagina">
+
+    <h2>
+        🏀 Grandes equipos de los Playoffs
+    </h2>
+
+    <h3>
+        Las dinastías
+    </h3>
+
+    <p>
+        A lo largo de la historia de la NBA, algunos equipos han
+        conseguido dominar durante diferentes épocas y convertirse
+        en referentes de la competición.
+    </p>
+
+    <h3>
+        Dominio y continuidad
+    </h3>
+
+    <p>
+        Mantener el éxito durante varias temporadas requiere
+        grandes jugadores, buenos entrenadores y una organización
+        capaz de mantener un alto nivel competitivo.
+    </p>
+
+    <h3>
+        El legado
+    </h3>
+
+    <p>
+        Los grandes equipos dejan una huella importante en la
+        historia de la NBA y son recordados durante generaciones.
+    </p>
+
+    <a href="#historia" class="volver">
+        ← Volver a Historia
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     JUGADORES LEGENDARIOS
+====================================================== -->
+
+<section id="jugadores" class="pagina">
+
+    <h2>
+        👑 Jugadores legendarios
+    </h2>
+
+    <h3>
+        Grandes estrellas
+    </h3>
+
+    <p>
+        La historia de los Playoffs está llena de jugadores que
+        consiguieron destacar en los momentos más importantes
+        de sus carreras.
+    </p>
+
+    <h3>
+        Actuaciones memorables
+    </h3>
+
+    <p>
+        Algunas actuaciones individuales se han convertido en
+        momentos históricos por su importancia dentro de una
+        eliminatoria.
+    </p>
+
+    <h3>
+        Legado
+    </h3>
+
+    <p>
+        El impacto de estos jugadores no solamente se mide por
+        sus estadísticas, sino también por los campeonatos,
+        récords y momentos que dejaron en la competición.
+    </p>
+
+    <a href="#historia" class="volver">
+        ← Volver a Historia
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     GRANDES REMONTADAS
+====================================================== -->
+
+<section id="remontadas" class="pagina">
+
+    <h2>
+        ⚡ Grandes remontadas
+    </h2>
+
+    <h3>
+        Nunca está todo decidido
+    </h3>
+
+    <p>
+        Una de las características más emocionantes de los
+        Playoffs es que una eliminatoria puede cambiar rápidamente
+        cuando un equipo consigue recuperar terreno.
+    </p>
+
+    <h3>
+        Mentalidad
+    </h3>
+
+    <p>
+        Para remontar una serie es necesario mantener la concentración
+        y continuar compitiendo incluso cuando el resultado inicial
+        no es favorable.
+    </p>
+
+    <h3>
+        Momentos históricos
+    </h3>
+
+    <p>
+        Algunas remontadas se han convertido en parte de la historia
+        de la NBA debido a la dificultad de conseguir cambiar el
+        rumbo de una serie.
+    </p>
+
+    <a href="#historia" class="volver">
+        ← Volver a Historia
+    </a>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACTO
+====================================================== -->
+
+<section id="contacto" class="contacto">
+
+    <h2>
+        Contacto
+    </h2>
+
+    <p>
+        ¿Tienes alguna opinión sobre los Playoffs?
+        ¡Cuéntanosla!
+    </p>
+
+
+    <form>
+
+        <label for="nombre">
+            Nombre
+        </label>
+
+        <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            placeholder="Escribe tu nombre"
+        >
+
+
+        <label for="email">
+            Email
+        </label>
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="tuemail@email.com"
+        >
+
+
+        <label for="mensaje">
+            Mensaje
+        </label>
+
+        <textarea
+            id="mensaje"
+            name="mensaje"
+            rows="6"
+            placeholder="Escribe tu mensaje..."
+        ></textarea>
+
+
+        <button type="submit">
+            Enviar mensaje
+        </button>
+
+    </form>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer>
+
+    <h3>
+        🏀 NBA PLAYOFFS
+    </h3>
+
+    <p>
+        Proyecto web sobre los Playoffs de la NBA.
+    </p>
+
+    <p>
+        © 2026 - Proyecto de TIC
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
+
+  <script>
+    
+  </script>
+</body>
+</html>
